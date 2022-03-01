@@ -13,7 +13,7 @@ if os.path.exists(db_copy):
     os.remove(db_copy)
 shutil.copyfile(db, db_copy)
 
-filePath = './result.txt'
+filePath = 'result.txt'
 
 with closing(sqlite3.connect(db_copy)) as conn:
     c = conn.cursor()
