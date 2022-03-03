@@ -31,11 +31,12 @@ with closing(sqlite3.connect(db_copy)) as conn:
 terms = urllib.parse.unquote(terms)
 
 app_id = "dj00aiZpPXo5cG9DYkh6Qm93byZzPWNvbnN1bWVyc2VjcmV0Jng9YTY-"
-headers = {"Content-Type": "application/json",
+headers = {"Content-Type": "application/x-www-form-urlencoded",
            "User-Agent": 'Yahoo AppID: {0}'.format(app_id)}
-parameters = {"app_id": app_id,  
-              "sentence": "庭には二羽ニワトリがいる。", 
-              "results":"ma, uniq"}
+parameters = {"app_id": app_id,
+              "sentence":"庭には二羽ニワトリがいる。", 
+              "filter": "1|2|4|9|10", 
+              "results":"ma,uniq"}
 
 response = requests.post("https://jlp.yahooapis.jp/MAService/V1/parse",headers=headers, data=parameters)
 
